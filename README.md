@@ -22,7 +22,7 @@ client = ListHubClient.create()
 listings = client.get_listings()
 ```
 
-see _api.py_ for more details.
+see [api.py](api.py) for more details.
 
 ### N.B.:
 
