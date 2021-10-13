@@ -1,23 +1,28 @@
-## Connecting to ListHub API with Python
+## Connecting to ListHub's API with Python
 
-The [Syndication API](https://developer.listhub.com/api/#making-requests) uses OAuth 2.0 for authentication. `api.py` implements a thin wrapper around ListHub's Syndication API-- enough to get started.
+ListHub provides a [RESO](https://www.reso.org/reso-web-api/) Web API compliant service. [The API](https://developer.listhub.com/api/#making-requests) uses OAuth 2.0 for [authentication](https://developer.listhub.com/api/#authentication). _api.py_ implements a thin wrapper that demonstrates how to authenticate with a RESO compatible web service.
 
 
 ### Usage
 
+The initialized client will automatically fetch and manage access tokens transparently in the background.
+
 ```python
 from api import ListHubClient
 
-# create returns a listhub client instantiated
-# with a new authentication token
 # create expects LISTHUB_CLIENT_ID and
 # LISTHUB_CLIENT_SECRET defined as environment
 # variables.
 
 client = ListHubClient.create()
 
+# The API will return a JSON response with an array of
+# listing JSON objects. See adapters.py to simplify
+# working with the ListHub's json response objects.
 listings = client.get_listings()
 ```
+
+see _api.py_ for more details.
 
 ### N.B.:
 
